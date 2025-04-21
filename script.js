@@ -9,12 +9,18 @@ document.querySelectorAll('button').forEach(button => {
 
 console.log("Welcome to Be Fashionable!");
 
-// If you need to update cart counter (for example), you can do something like:
-let cartCount = 0;
-document.querySelectorAll('button').forEach(button => {
-  button.addEventListener('click', () => {
-    cartCount++;
-    // Update the cart item count text (assuming you have an element for Cart)
-    document.querySelector('a[href="#"]').textContent = `Cart (${cartCount})`;
-  });
-});
+const kurtiGrid = document.getElementById('kurti-grid');
+
+for (let i = 1; i <= 27; i++) {
+  const productCard = document.createElement('div');
+  productCard.className = "border rounded-lg shadow-sm p-4 text-center";
+
+  productCard.innerHTML = `
+    <img src="kurtis/${i}.jpg" alt="Kurti ${i}" class="mx-auto mb-4 max-h-60 object-contain">
+    <h4 class="text-lg font-semibold">Kurti #${i}</h4>
+    <p class="text-pink-600 font-bold">₹999</p>
+    <button class="mt-2 bg-pink-600 text-white px-4 py-1 rounded hover:bg-pink-500">Add to Cart</button>
+  `;
+
+  kurtiGrid.appendChild(productCard);
+}
